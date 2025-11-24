@@ -5,8 +5,8 @@ import MatchList from '../components/MatchList';
 
 // Sample data for the player card, easily replaced by component props later
 const playerProfile = {
-    inGameName: '"rape who"',
-    realName: 'george huot 🇮🇱',
+    inGameName: '"r who"',
+    realName: 'george 🇮🇱',
     team: 'r gaming',
     age: '23 yrs',
     role: 'awper',
