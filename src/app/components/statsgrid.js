@@ -41,7 +41,7 @@ const StatsGrid = ({playerName}) => {
             totalRounds += Number(team1Score) + Number(team2Score);
 
         })
-        //console.log(totalKills, totalADR, totalDeaths, totalHSP, totalRating, totalRounds);
+
         const calculatedAverages = {
             KPR: (totalKills / totalRounds).toFixed(2),
             ADR: (totalADR / numberOfMatches).toFixed(1),
@@ -50,8 +50,6 @@ const StatsGrid = ({playerName}) => {
             HSP: (totalHSP / numberOfMatches).toFixed(1),
             KD: (totalKills / totalDeaths).toFixed(2)
         };
-
-        //console.log(KPR, ADR, DPR, rating, HSP, avgKD);
 
         return calculatedAverages;
     }
@@ -154,13 +152,8 @@ const StatsGrid = ({playerName}) => {
             
             {statsData?.success ? (
                 <div className="bg-gray-800 text-white rounded-xl shadow-2xl overflow-hidden w-full max-w-4xl transition-all duration-300 mb-6">
-
-                    {/* Main Layout: Portrait (Left) & Info/Stats (Right) */}
                     <div className="flex flex-col md:flex-row h-auto">
-
-                        {/* 1. Portrait Section (Left) */}
                         <div className="md:w-1/3 flex-shrink-0 relative">
-                            {/* Placeholder Image for Player Portrait */}
                             <img 
                                 src={`${playerName}.png`} 
                                 alt="Player Profile Image" 
@@ -171,45 +164,33 @@ const StatsGrid = ({playerName}) => {
                                 }}
                             />
                         </div>
-
-                        {/* 2. Info & Stats Section (Right) */}
                         <div className="md:w-2/3 p-6 space-y-6">
-
-                            {/* 2a. Player Biographical Information (Top) */}
                             <header className="border-b border-gray-700 pb-4">
-                                {/* In-Game Name (Top Line) */}
                                 <h1 className="text-4xl font-black text-amber-400 leading-tight mb-1">
                                     {renderIGN()}
                                 </h1>
-                                {/* Real Name, Team Name, and Age (Single Line) */}
                                 <h3 className="text-base text-gray-400 font-medium">
                                     {renderPlayerInfo()}
                                 </h3>
                             </header>
-
-                            {/* 2b. Player Statistics Grid (6-Item Grid) */}
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                                 {averages != null ? 
                                 Object.entries(averages).map(([key, value]) => {
                             return ( <div className="stat-item bg-gray-700 p-3 rounded-lg shadow-inner flex flex-col" key={key}>
-                                        {/* Stat Name (Smaller, above, Left-Aligned) */}
                                         <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
                                                 {key}
                                         </span>
-                                        {/* Stat Value (Much Bigger, Left-Aligned) */}
                                         <span className="text-4xl font-extrabold text-white-400 mt-1">
                                                     {value}
                                         </span>
                                         
                                         <div className="h-2 bg-gray-600 rounded-full overflow-hidden w-full mt-3">
-                                            {/* Bar is a fixed, full-width block of single color */}
                                             {renderStatMeter(key)}
                                         </div>
                                     </div> )
                                 })   
                             :<div>loading</div>}
                             </div>
-                            {/* End of Stats Grid */}
                         </div>
 
                     </div>

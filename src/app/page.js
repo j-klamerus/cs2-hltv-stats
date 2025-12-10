@@ -1,6 +1,4 @@
 'use client';
-import Image from "next/image";
-import Link from "next/link"
 import StatsGrid from "./components/statsgrid";
 
 export default function Home() {
